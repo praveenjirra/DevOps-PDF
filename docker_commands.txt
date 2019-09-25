@@ -1,0 +1,76 @@
+Reference Link: https://www.tutorialspoint.com/docker/index.htm
+https://www.javainuse.com/devOps/docker/docker-commands-cheat-sheet
+
+docker version
+docker info
+docker images
+docker pull <imageName>
+docker run <imageName>
+docker run -it <imageName>    --> running image on interactive terminal Mode
+docker run -d <imageName>     --> detached mode of running container
+docker ps                     --> containers which are running
+docker ps -a                  --> all containers started and exited
+docker ps -aq                 --> all container IDs
+docker rm <containerID> (or)  --> removing one container by ID 
+docker rm $(docker ps -aq)    --> deleting all container by IDs
+docker rmi -f <imageID >      --> forced removal of one image
+docker rmi -f $(docker images -aq) --> remove all the images exist in the system.
+
+All the dangling images with no tags can be viewes through below command
+ docker images --filter "dangling=true"
+
+
+docker stop <containerID>
+docker start <containerID>
+docker kill <containerID>
+docker run -d -p 15672:15672 --hostname my-rabbitmq --name messageQ rabbitmq:3-management
+docker run -d -p 4000:8080 -p 50000:50000 -v /home/ubuntu/jenkins:/var/jenkins_home --name sunil007 jenkins/jenkins
+ 
+Example to try for volume mount: https://dev.to/jibinliu/how-to-persist-data-in-docker-container-2m72
+
+Starting and stoping docker engine service from OS:
+service docker stop  (To check whether the service is running fire a cmd: docker info)
+service docker start (To check whether the service is running fire a cmd: docker info)
+
+DockerFile:  --> Set of instruction to build a Image
+FROM, MAINTAINER, RUN, ADD,COPY,ENTRYPOINT,CMD,HEALTH...
+
+docker build -t <imgName:TagName> dir   (.)         ---> It will build a image based on Dockerfile instruction in current directory.
+
+Tag the image to align to Docker Hub repository:
+docker tag <currentRepoName> <expectedRepoName>     --> eg: docker tag nginx:1.0 manee2k6/nginx:1.0
+
+Below URL helps to configure withDockerRegistry and servers:
+https://jenkins.io/doc/pipeline/steps/docker-workflow/
+
+docker login    --> Provider username and Password
+docker push <repoNameWithTag>                       --> eg: docker push manee2k6/nginx:1.0
+
+docker inspect <imageID>                            --> To inspect the configuration of Images created..
+docker inspect <repoName:tagName>                   --> To inspect the configuration of Repository.
+
+Volume mounting uisng -v:
+ docker run -p 8081:8080 -p 50000:50000 -v /var/jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock --name          jenkins -d jenkins-docker
+ 
+Steps to install Docker-compose using Shell script:
+
+curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+cd /usr/local/bin
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+
+https://www.javainuse.com/devOps/docker/docker-compose-tutorial
+ Above docker run command can be executed using Docker-compose file as below:
+  Ref Link: https://github.com/docker/compose
+  1. Create a file called as "docker-compose.yml"
+  2. Copy the code below on the above file.
+version: "2"
+services: 
+  redis: 
+    image: redis
+  web: 
+    build: "."
+    ports: 
+      - "5000:5000"
+    volumes: 
+      - ".:/code"

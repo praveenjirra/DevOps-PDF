@@ -1,0 +1,11 @@
+Step1- Create Jfrog account and activate it in AWS cloud(Server ID:itrainavenger.jfrog.io) (URL-https://itrainavenger.jfrog.io/itrainavenger/).
+Step2- Post activation, login to Jfrog, create user and group to provide permission(manee2k6/test@123).
+Step3- Login to Jfrog with user created, edit profile and generate API key to copy the same.
+AKCp5dKPcq937FFCDzkfhy1LLYZmr49WtnVUfDiopgR7X4DwskpW5TyXn2oiHvhwrij3hh5p2
+
+Step3- In Jenkins configure Jfrog server details under Artifactory(Install articatory plugin in jenkins)
+       Server ID: satyasai.jfrog.io
+       URL: https://satyasai.jfrog.io/satyasai
+       API Key need to created from your profile and use them in credential section as password
+Step4- Update Jenkinsfile to use Jfrog server details configured in Jenkins.
+Step5- Create Pipeline job for jfrog project, Package the maven project and deploy artifacts.

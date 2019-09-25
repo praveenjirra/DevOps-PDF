@@ -1,0 +1,53 @@
+https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Ubuntu
+https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-16-04
+
+
+Installation for Jenkins with Java:
+---------------------------------------
+sudo apt-get update
+sudo apt-get install default-jdk -y
+java --version
+sudo chmod 777 /etc/environment
+vim /etc/environment > JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/
+
+----------------------------
+jenkins:
+------------------------------
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+sudo apt-add-repository "deb https://pkg.jenkins.io/debian-stable binary/"
+sudo apt-get update
+sudo apt install jenkins -y
+
+sudo chmod +x /var/lib/jenkins/secrets/initialAdminPassword
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+----------------------------------------------------------
+a unique pass word generates: 7ac80fd8e70c443ea1aa26466e98c8e6(do not use this for your installation)
+
+If your jenkins is running as service instead of process you should stop it first using
+
+sudo service jenkins stop
+
+After stopping it you can follow the normal flow of removing it using commands respective to your linux flavour
+
+For centos it will be
+sudo yum remove jenkins
+
+For ubuntu it will
+sudo apt-get remove --purge jenkins
+
+if you are ubuntu user than try this:
+
+sudo apt-get remove jenkins
+sudo apt-get remove --auto-remove jenkins   (worked)
+
+
+
+Stackoverflow
+use 18.04 LTS in AMI
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt install oracle-java8-installer
+apt install openjdk-8-jre-headless
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+sudo apt-add-repository "deb https://pkg.jenkins.io/debian-stable binary/"
+sudo apt-get update
+sudo apt install jenkins

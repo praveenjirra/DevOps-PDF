@@ -1,0 +1,29 @@
+
+Create Openshift Online account: https://manage.openshift.com/
+
+Download CLI from WebConsole with "?".
+wget https://mirror.openshift.com/pub/openshift-v4/clients/oc/4.1/linux/oc.tar.gz
+
+Xtract the file : tar -xvzf oc.tar.gz
+place it in:    mv oc /usr/local/bin
+chmod +x /usr/local/bin/oc
+oc login https://api.starter-us-east-1.openshift.com --token=<hidden>
+oc new-project <project-Name>
+oc new-app <dockerhub image path> --name <appName>    ---> eg oc new-app manee2k6/python-app:1.0 --name python-app
+
+A new app called python-app is created based on the manee2k6/python-app:1.0 image. After running the previous command, 
+a new pod running the previous image + a service +  a replication controller is created.
+
+After that, we need to create a route so the service is available to the public Internet.
+
+oc expose svc python-app --name=pyapp
+
+To update new version of image:
+oc import-image python-app:1.1 --from=manee2k6/python-app:1.1 
+
+To delete an app in the project use the below command
+oc delete all -l app=appName
+
+Reference Link:
+
+https://dzone.com/articles/deploying-docker-images-to-openshift

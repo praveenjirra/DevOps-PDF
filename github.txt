@@ -1,0 +1,13 @@
+https://dzone.com/articles/top-20-git-commands-with-examples
+https://guides.github.com/introduction/flow/
+https://help.github.com/articles/what-are-the-differences-between-subversion-and-git/
+https://www.git-tower.com/blog/git-cheat-sheet/
+https://stackoverflow.com/questions/33667782/fatal-error-cant-resolve-host-github-com
+https://www.guru99.com/maven-jenkins-with-selenium-complete-tutorial.html
+https://en.wikipedia.org/wiki/Apache_Maven
+
+Git practice labs:
+https://www.katacoda.com/courses/git
+
+Git Installation for Linux:
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git

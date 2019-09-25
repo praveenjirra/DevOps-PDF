@@ -1,0 +1,162 @@
+    1  docker version
+    2  docker --version
+    3  docker info
+    4  clear
+    5  docker version
+    6  docker info
+    7  clear
+    8  docker images
+    9  cd /var/lib/docker
+   10  ls
+   11  cd image/
+   12  ls
+   13  cd overlay2/
+   14  ls
+   15  cd imagedb/
+   16  ls
+   17  cd content/
+   18  ls
+   19  cd sha256/
+   20  ls
+   21  docker run hello-world
+   22  ls
+   23  docker images
+   24  docker run hello-world
+   25  ls
+   26  cd /home/ubuntu/
+   27  clear
+   28  docker images
+   29  docker rmi -f fce289e99eb9
+   30  docker images
+   31  docker ps
+   32  docker ps -a
+   33  cd /var/lib/docker
+   34  ls
+   35  cd containers/
+   36  ls
+   37  docker start 31699f19273b
+   38  docker ps
+   39  docker ps -a
+   40  clear
+   41  docker ps -a
+   42  docker rm $(docker ps -a)
+   43  docker ps -a
+   44  c;ear
+   45  clear
+   46  ls
+   47  cd ..
+   48  cd run
+   49  ls
+   50  exit
+   51  docker version
+   52  clear
+   53  docker images
+   54  docker images -aq
+   55  docker ps -aq
+   56  docker pull jenkins/jenkins
+   57  clear
+   58  docker images
+   59  docker run -it -p 4000:8080 -p 50000:50000 jenkins/jenkins
+   60  docker ps
+   61  docker images
+   62  docker images -aq
+   63  docker ps -aq
+   64  docker start a70380200064
+   65  docker ps
+   66  docker stop a70380200064
+   67  docker kill a70380200064
+   68  clear
+   69  docker ps -aq
+   70  docker rm $(docker ps -aq)
+   71  docker ps -aq
+   72  docker images
+   73  docker run -d -p 4000:8080 -p 50000:50000 -v / --name sunil007 jenkins/jenkins
+   74  docker ps
+   75  docker stop c241f65f178c
+   76  docker rm c241f65f178c
+   77  docker ps -a
+   78  docker ps
+   79  docker clear
+   80  clear
+   81  docker ps -aq
+   82  docker exec -it 4ed8872ae2f8
+   83  docker exec -it 4ed8872ae2f8 /bin/bash
+   84  docker ps -aq
+   85  docker rm 4ed8872ae2f8
+   86  docker rm -f 4ed8872ae2f8
+   87  ls
+   88  cd jenkins/
+   89  ls
+   90  pwd
+   91  docker run -d -p 4000:8080 -p 50000:50000 -v /home/ubuntu/jenkins:/var/jenkins_home --name sunil007 jenkins/jenkins
+   92  ls
+   93  cd secrets
+   94  ls
+   95  cat initialAdminPassword
+   96  cd ..
+   97  cd jobs/
+   98  ls
+   99  cd PipelineJob/
+  100  ls
+  101  cd ..
+  102  docker ps -aq
+  103  cd ..
+  104  cd ubuntu/
+  105  ls
+  106  docker images
+  107  reboot
+  108  clear
+  109  docker images
+  110  docker ps -aq
+  111  docker ps
+  112  docker ps -a
+  113  docker rm 4381f5b3ab1f
+  114  docker ps -a
+  115  docker ps -aq
+  116  clear
+  117  cd jenkins/
+  118  ls
+  119  clear
+  120  cd ..
+  121  docker run -d -p 4000:8080 -p 50000:50000 -v /home/ubuntu/jenkins:/var/jenkins_home --name sunil007 jenkins/jenkins
+  122  docker ps
+  123  ls
+  124  mkdir pythonapp
+  125  ls
+  126  cd pythonapp/
+  127  vim Dockerfile
+  128  ls
+  129  vim requirements.txt
+  130  ls
+  131  vim app.py
+  132  ls
+  133  vim Dockerfile
+  134  docker build . -t pythonapp:1.0
+  135  docker images
+  136  docker images -aq
+  137  docker ps -aq
+  138  docker ps -a
+  139  clear
+  140  docker ps -aq
+  141  docker ps -a
+  142  docker ps
+  143  docker run -p 5000:80 --name itrain -d pythonapp:1.0
+  144  docker ps
+  145  docker stop 90cca02ad3a4
+  146  docker stop 1d8d08c56989
+  147  docker start 90cca02ad3a4
+  148  ls
+  149  vim app.py
+  150  docker ps -aq
+  151  docker ps
+  152  docker rm 90cca02ad3a4
+  153  docker stop 90cca02ad3a4
+  154  docker rm 90cca02ad3a4
+  155  docker images
+  156  docker rmi -f 07ed178cc798
+  157  docker images
+  158  clear
+  159  docker build . -t pythonapp:2.0
+  160  docker images
+  161  docker run -p 5000:80 --name python -d pythonapp:2.0
+  162  history
